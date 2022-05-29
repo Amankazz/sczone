@@ -1,11 +1,14 @@
 import 'dart:ui';
+import 'package:breathing_collection/breathing_collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:like_button/like_button.dart';
 import 'package:sczone/codetwo/panel_widget.dart';
 import 'package:sczone/models/book.dart';
 import 'package:sczone/pages/Details.dart';
+import 'package:sczone/pages/scan.dart';
 import 'package:sczone/widgets/share_widget.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -90,31 +93,50 @@ class _BookDetailBottomSheetState extends State<BookDetailBottomSheet> {
                   Radius.circular(8),
                 ),
               ),
-              child: Container(
-                height: 180,
-                width: 130,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(3),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xffeeebe3),
-                      blurStyle: BlurStyle.solid,
-                      blurRadius: 3.0,
-                      offset: Offset(4, 1.5),
-                    ),
-                    BoxShadow(
-                      color: Colors.black54,
-                      blurStyle: BlurStyle.inner,
-                      blurRadius: 3,
-                      offset: Offset(5, 2),
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
+              child: Stack(children: [
+                Container(
+                  height: 180,
+                  width: 130,
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(3),
-                    child: Image.network(widget.bookObject.cover,
-                        fit: BoxFit.fill)),
-              ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xffeeebe3),
+                        blurStyle: BlurStyle.solid,
+                        blurRadius: 3.0,
+                        offset: Offset(4, 1.5),
+                      ),
+                      BoxShadow(
+                        color: Colors.black54,
+                        blurStyle: BlurStyle.inner,
+                        blurRadius: 3,
+                        offset: Offset(5, 2),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(3),
+                      child: Image.network(widget.bookObject.cover,
+                          fit: BoxFit.fill)),
+                ),
+                Positioned(
+                  left: 35,
+                  top: 60,
+                  child: BreathingGlowingButton(
+                    height: 60,
+                    width: 60,
+
+                    // buttonBackgroundColor: Color(0xFF373a49),
+                    buttonBackgroundColor: Colors.white.withOpacity(.5),
+                    icon: Icons.play_arrow,
+                    glowColor: Colors.greenAccent.withOpacity(.9),
+                    iconColor: Colors.black,
+                    onTap: () {
+                      Get.to(ScanPage());
+                    },
+                  ),
+                ),
+              ]),
             ),
           ),
           // Positioned(top: 50, left: 15, child: ShareButton()),

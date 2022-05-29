@@ -1,3 +1,4 @@
+import 'package:breathing_collection/breathing_collection.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -162,7 +163,11 @@ class _PanelWidgetState extends State<PanelWidget> {
         ),
         buildExpandedText(),
         SizedBox(
-          height: 16,
+          height: 8,
+        ),
+        Divider(
+          height: 30,
+          thickness: 2,
         ),
         Text(
           "Recommended",
@@ -191,7 +196,7 @@ class _PanelWidgetState extends State<PanelWidget> {
               );
             },
           ),
-        ),
+        )
       ],
     );
   }
@@ -308,6 +313,7 @@ class _PanelWidgetState extends State<PanelWidget> {
               Text(
                 widget.bookObject.genre,
                 style: TextStyle(
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),

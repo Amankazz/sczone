@@ -3,7 +3,7 @@ BookList booklist = BookList(books: [
     index: 1,
     title: "Harry Potter and the Deathly Hallows",
     cover:
-        "https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg",
+        "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/46ac3ac6179147ea81eeb4be814e8ea7b73a60b3a9eed3c34b05ee10874e00bc._RI_V_TTW_.jpg",
     age: "ALL AGE",
     author: "J. K. Rowling",
     authorImg: "https://images.gr-assets.com/authors/1510435123p5/1077326.jpg",

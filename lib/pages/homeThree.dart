@@ -180,7 +180,6 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
                 SizedBox(
                   height: 30,
                 ),
-                /////////////////////////////////////////////////////////////
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: const Text(

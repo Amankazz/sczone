@@ -46,6 +46,8 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   firebase_auth: ^3.3.18
   firebase_core: ^1.17.0
+#  cloud_firestore: ^3.1.16
+  breathing_collection: ^1.0.0+3
   like_button: ^2.0.4
   loading_animation_widget: ^1.2.0
   flutter_slider_drawer: ^2.1.1
@@ -54,6 +56,8 @@ dependencies:
   flutter_speed_dial: ^6.0.0
   expansion_tile_card: ^2.0.0
   fluttertoast: ^8.0.9
+  group_button: ^5.0.1
+  scrollable_positioned_list: ^0.2.3
 
 
 
