@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'package:flutter/material.dart';
@@ -150,12 +151,14 @@ class _SideBarState extends State<SideBar>
                                 title: "Home",
                               ),
                               MenuItem(
+                                //TODO Connect to Wishlist Page
                                 icon: Icons.favorite,
                                 title: "Wishlist",
                               ),
                               MenuItem(
-                                icon: Icons.shopping_basket,
-                                title: "My Orders",
+                                //TODO Connect to MyBooks Page
+                                icon: Icons.book,
+                                title: "My Books",
                               ),
                               Divider(
                                 height: 40,
@@ -163,10 +166,10 @@ class _SideBarState extends State<SideBar>
                                 indent: 32,
                                 endIndent: 32,
                               ),
-                              MenuItem(
-                                icon: Icons.settings,
-                                title: "Settings",
-                              ),
+                              // MenuItem(
+                              //   icon: Icons.settings,
+                              //   title: "Settings",
+                              // ),
                               GestureDetector(
                                 onTap: () {
                                   AuthController.instance.logOut();

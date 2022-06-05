@@ -180,6 +180,7 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
                 SizedBox(
                   height: 30,
                 ),
+                /////////////////////////////////////////////////////////////
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: const Text(
@@ -444,8 +445,10 @@ class BooksTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Details(bookObject)));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => BookDetailBottomSheet(bookObject)));
       },
       child: Container(
         height: 200,

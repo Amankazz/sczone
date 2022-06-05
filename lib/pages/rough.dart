@@ -147,13 +147,15 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
                           ),
                           controller: groupbuttoncontroller,
                           buttons: [
+                            "Kids",
                             "Education",
-                            "Thriller",
                             "Sci-Fi",
-                            "horror",
                             "Fantacy",
                             "Mystery",
-                            "Encyclopedia",
+                            "thriller",
+                            "Science",
+                            "History",
+                            "Encyclopedia"
                           ],
                         ),
                       ),
@@ -210,21 +212,18 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
                             ? booklist.books[index].title.substring(0, 15) +
                                 "..."
                             : booklist.books[index].title;
-                        if (index < 9 || index > 15) {
-                          return SizedBox();
-                        } else {
-                          return SingleBookTileContinueRead(
-                            title: title,
-                            genre: booklist.books[index].genre,
-                            coverImg: booklist.books[index].cover,
-                            bookObject: booklist.books[index],
-                          );
-                        }
+                        return SingleBookTile(
+                          title: title,
+                          genre: booklist.books[index].genre,
+                          coverImg: booklist.books[index].cover,
+                          price: booklist.books[index].price,
+                          bookObject: booklist.books[index],
+                        );
                       }),
                 ),
                 //---
                 SizedBox(
-                  height: 5,
+                  height: 16,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
@@ -251,17 +250,13 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
                             ? booklist.books[index].title.substring(0, 15) +
                                 "..."
                             : booklist.books[index].title;
-                        if (index < 5) {
-                          return SizedBox();
-                        } else {
-                          return SingleBookTile(
-                            title: title,
-                            genre: booklist.books[index].genre,
-                            coverImg: booklist.books[index].cover,
-                            price: booklist.books[index].price,
-                            bookObject: booklist.books[index],
-                          );
-                        }
+                        return SingleBookTile(
+                          title: title,
+                          genre: booklist.books[index].genre,
+                          coverImg: booklist.books[index].cover,
+                          price: booklist.books[index].price,
+                          bookObject: booklist.books[index],
+                        );
                       }),
                 ),
                 SizedBox(
@@ -333,8 +328,7 @@ class _MyHomeState extends State<MyHome> with TickerProviderStateMixin {
                             ? booklist.books[index].title.substring(0, 15) +
                                 "..."
                             : booklist.books[index].title;
-                        if (booklist.books[index].genre == "Sci-Fi" ||
-                            booklist.books[index].genre == "Fictional") {
+                        if (booklist.books[index].genre == "Sci-Fi") {
                           return SingleBookTile(
                             title: title,
                             genre: booklist.books[index].genre,
@@ -422,6 +416,11 @@ class CustomSearchDelegate extends SearchDelegate {
   List<String> searchTerms = [
     'harry',
     'sherlock',
+    'george',
+    'ring',
+    'king',
+    'god',
+    'code',
   ];
 
   @override
@@ -679,13 +678,13 @@ Christian Andersen.''',
 
 class SingleBookTile extends StatelessWidget {
   String title, genre, coverImg;
-  double? price;
+  double price;
   final Book bookObject;
   SingleBookTile(
       {required this.title,
       required this.genre,
       required this.coverImg,
-      this.price,
+      required this.price,
       required this.bookObject});
 
   @override
@@ -767,101 +766,6 @@ class SingleBookTile extends StatelessWidget {
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
                     )),
-              ],
-            ),
-            SizedBox(
-              width: 15,
-            ),
-          ],
-        )
-      ])),
-    );
-  }
-}
-
-class SingleBookTileContinueRead extends StatelessWidget {
-  String title, genre, coverImg;
-  final Book bookObject;
-
-  SingleBookTileContinueRead(
-      {required this.title,
-      required this.genre,
-      required this.coverImg,
-      required this.bookObject});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => BookDetailBottomSheet(bookObject)));
-      },
-      child: Container(
-          child: Column(children: <Widget>[
-        Row(
-          children: <Widget>[
-            SizedBox(
-              width: 15,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  height: 180,
-                  width: 130,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(3),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black54,
-                          blurStyle: BlurStyle.outer,
-                          blurRadius: 5.0,
-                          offset: Offset(5, 1.5),
-                        ),
-                        BoxShadow(
-                          color: Colors.black54,
-                          blurStyle: BlurStyle.normal,
-                          blurRadius: 7.0,
-                          offset: Offset(8, 2),
-                        ),
-                      ]),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(3),
-                      child: Image.network(coverImg, fit: BoxFit.fill)),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  title,
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  genre,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Color(0xff007084),
-                    fontWeight: FontWeight.w400,
-                  ),
-                  softWrap: true,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
               ],
             ),
             SizedBox(

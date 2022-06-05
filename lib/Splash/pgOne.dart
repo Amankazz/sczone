@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:liquid_swipe/Helpers/Helpers.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sczone/loginTwo/login_pg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -15,47 +17,110 @@ class _SplashScreenState extends State<SplashScreen> {
 
   final pages = [
     Container(
-      color: Colors.black87,
-      child: const Center(
-        child: Text(
-          "Page1",
-          style: TextStyle(
-              fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
+      color: Colors.black,
+      child: Stack(children: [
+        Expanded(
+          child: Container(
+            color: Colors.black,
+          ),
         ),
+        Padding(
+          padding: const EdgeInsets.only(top: 100),
+          child: Column(
+            children: [
+              Lottie.asset("assets/hfour.json"),
+              SizedBox(
+                height: 30,
+              ),
+              const Text(
+                "Touch the past, control the future",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ]),
+    ),
+    Container(
+      color: Colors.black,
+      child: Stack(
+        children: [
+          //Image.asset("assets/solarsys.png"),
+          Expanded(
+            child: Container(
+              color: Colors.black,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Column(
+              children: [
+                Stack(children: [
+                  Image.network(
+                    "https://cdn.dribbble.com/users/518045/screenshots/15345672/media/075eef3d9b40a163b5bc5b62b92f5a96.png",
+                  ),
+                  Lottie.asset(
+                    "assets/astronot.json",
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 350.0),
+                    child: const Text(
+                      "Immerse yourself in limitless space and time",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                  ),
+                ]),
+              ],
+            ),
+          ),
+        ],
       ),
     ),
     Container(
-      color: Colors.greenAccent,
-      child: const Center(
-        child: Text(
-          "Page2",
-          style: TextStyle(
-              fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
+      color: Colors.black,
+      child: Stack(children: [
+        Expanded(
+          child: Container(
+            color: Colors.black,
+          ),
         ),
-      ),
-    ),
-    Container(
-      color: Colors.blue,
-      child: const Center(
-        child: Text(
-          "Page3",
-          style: TextStyle(
-              fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
+        Padding(
+          padding: const EdgeInsets.only(top: 150),
+          child: Column(
+            children: [
+              Lottie.asset("assets/newportaltwo.json"),
+              SizedBox(
+                height: 50,
+              ),
+              const Text(
+                "Let’s step into a new dimension",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    ),
-    Container(
-      color: Colors.pinkAccent,
-      child: const Center(
-        child: Text(
-          "Page4",
-          style: TextStyle(
-              fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-      ),
+      ]),
     ),
   ];
-
+  //
   // const SplashScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -63,6 +128,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: [
           LiquidSwipe(
+            enableLoop: false,
             liquidController: controller,
             pages: pages,
             enableSideReveal: true,
@@ -124,9 +190,13 @@ class _SplashScreenState extends State<SplashScreen> {
                       Get.offAll(() => LoginPg());
                     },
                     child: Text(
-                      "Get Started",
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      " Explore Now ",
+                      style: TextStyle(
+                        fontSize: 34,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        backgroundColor: Colors.lightGreenAccent,
+                      ),
                     ),
                   ),
           ),

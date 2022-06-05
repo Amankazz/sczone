@@ -79,45 +79,6 @@ class _PanelWidgetState extends State<PanelWidget> {
                 ),
               ),
             )),
-        // ExpansionTileCard(
-        //   elevation: 3,
-        //   animateTrailing: true,
-        //   borderRadius: BorderRadius.circular(16),
-        //   title: Text(
-        //     "Chapter 1",
-        //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-        //   ),
-        //   subtitle: Text(
-        //     "First Day in town",
-        //     style: TextStyle(
-        //       fontWeight: FontWeight.w500,
-        //       fontSize: 16,
-        //     ),
-        //   ),
-        //   children: [
-        //     Padding(
-        //       padding: const EdgeInsets.only(bottom: 8.0),
-        //       child: Row(
-        //         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //         children: [
-        //           Column(
-        //             children: [
-        //               Text("Models: 10",
-        //                   style: TextStyle(
-        //                       fontSize: 20, fontWeight: FontWeight.bold)),
-        //             ],
-        //           ),
-        //           Text("Portal: 10",
-        //               style:
-        //                   TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        //           Text("World: 10",
-        //               style:
-        //                   TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        //         ],
-        //       ),
-        //     ),
-        //   ],
-        // ),
         SizedBox(height: 15),
         buildDescriptionText(),
         SizedBox(
